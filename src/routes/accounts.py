@@ -224,7 +224,7 @@ async def activate_account(
     user.is_active = True
     await db.delete(token_record)
     await db.commit()
-    
+
     login_link = "http://127.0.0.1/accounts/login/"
     await email_sender.send_activation_complete_email(
         str(activation_data.email),
@@ -276,7 +276,7 @@ async def request_password_reset_token(
     reset_token = PasswordResetTokenModel(user_id=cast(int, user.id))
     db.add(reset_token)
     await db.commit()
-    
+
     reset_link = "http://127.0.0.1/accounts/reset-password/"
     await email_sender.send_password_reset_email(
         str(data.email),
