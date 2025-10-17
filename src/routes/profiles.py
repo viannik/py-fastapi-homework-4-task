@@ -91,10 +91,10 @@ async def create_user_profile(
         )
 
     new_profile = UserProfileModel(
-        user_id=cast(int, user_id),
+        user_id=user_id,
         first_name=profile_data.first_name,
         last_name=profile_data.last_name,
-        gender=cast(GenderEnum, profile_data.gender),
+        gender=GenderEnum(profile_data.gender),
         date_of_birth=profile_data.date_of_birth,
         info=profile_data.info,
         avatar=avatar_key
